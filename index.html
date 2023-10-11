@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TCC DIY</title>
 <style>
-  html, body {
+/*   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
-  }
-  .codepen {
+/*     overflow: hidden; */ */
+  } */
+/*   .codepen {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,20 +20,20 @@
     height: 100%;
     border: none;
 /*     style="box-sizing: border-box; display: flex; align-items: center; justify-content: center;" */
-  }
+  } */
 </style>
 </head>
 <body>
 <p class="codepen" data-theme-id="light" data-default-tab="result" data-slug-hash="xxmBxvz" data-user="tccdiy" data-token="8ae179d4a5940ac56b405605cff42652"></p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 <script>
-  // window.onresize = function() {
-  //   var windowHeight = window.innerHeight;
-  //   var embedElement = document.querySelector(".codepen");
-  //   embedElement.setAttribute("data-height", windowHeight);
-  // }
-  // window.onresize();
-  alert(1);
+  window.onresize = function() {
+    var windowHeight = window.innerHeight;
+    var embedElement = document.querySelector(".codepen");
+    embedElement.setAttribute("data-height", windowHeight);
+  }
+  window.onresize();
+  alert(2);
 </script>
 </body>
 </html>
