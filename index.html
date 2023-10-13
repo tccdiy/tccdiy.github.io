@@ -25,7 +25,9 @@
       position: absolute;
       width: 100%;
       height: 100%;
-/*       top: -2px;
+      /* crop to hide border when using codepen embed */
+      /*    
+      top: -2px;
       left: -2px;
       width: calc(100% + 4px);
       height: calc(100% + 4px); */
@@ -35,8 +37,6 @@
 <body>
   <iframe id="iframe" title="TCC DIY" src="" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
   <script>
-    alert("3");
-   
     function isMobile() {
       return "ontouchstart" in window || navigator.maxTouchPoints;
     }
@@ -78,7 +78,13 @@
       }
     }
 
-    document.getElementById("iframe").src = `https://codepen.io/tccdiy/debug/xxmBZoo/1daddbf0a485f13be19415bcb1a58431?default-tab=result&theme-id=${theme_id}`;
+    let mode = "embed";
+    let mode_param = new URLSearchParams(window.location.search).get("mode");
+    if (mode_param != null && ["embed", "pen", "debug", "live"].includes(mode_param)) {
+      mode = mode_param;
+    }
+
+    document.getElementById("iframe").src = `https://codepen.io/tccdiy/${mode}/xxmBZoo/1daddbf0a485f13be19415bcb1a58431?default-tab=result&theme-id=${theme_id}`;
   </script>
 </body>
 </html>
