@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <title>TCC DIY</title>
   <style>
     html, body {
@@ -10,6 +10,7 @@
       padding: 0;
       /* disable scrolling: */
       overflow: hidden;
+      position: fixed;
       /* codepen light: */
       background-color: #fefefe; 
     }
@@ -39,10 +40,10 @@
 </head>
 <body>
   <div id="scrollingDisabler">
-    <iframe id="iframe" title="TCC DIY" src="" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+    <iframe id="iframe" title="TCC DIY" src="" frameborder="no" loading="lazy" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
   </div>
   <script>
-alert("1");
+alert("22");
     
     function isMobile() {
       return "ontouchstart" in window || navigator.maxTouchPoints;
