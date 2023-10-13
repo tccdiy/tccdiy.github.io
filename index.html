@@ -61,14 +61,10 @@
   </script>
   <script>
     function loadIFrame() {
-      let mode = "debugplus";
+      let mode = "debug";
       let mode_param = new URLSearchParams(window.location.search).get("mode");
       if (mode_param != null && ["debug", "embed", "pen", "live"].includes(mode_param)) {
         mode = mode_param;
-      }
-      if (mode == "debugplus") {
-        document.getElementById("iframe").src = `https://cdpn.io/pen/debug/xxmBZoo/1daddbf0a485f13be19415bcb1a58431`;
-        return;
       }
       
       let theme_id = "default";
