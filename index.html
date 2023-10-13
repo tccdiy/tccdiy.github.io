@@ -8,7 +8,8 @@
     html, body {
       margin: 0;
       padding: 0;
-      /*overflow: hidden;  disable scrolling */
+      /* disable scrolling: */
+      overflow: hidden;
       /* codepen light: */
       background-color: #fefefe; 
     }
@@ -65,11 +66,7 @@
       }
     } else if (isMobile()) {
       if (isDarkMode()) {
-        if (isSafari()) {
-          theme_id = "default";
-        } else {
-          theme_id = "default";
-        }
+        theme_id = "default";
       } else {
         theme_id = "light";
       }
