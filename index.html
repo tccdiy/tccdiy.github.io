@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TCC DIY</title>
 <style>
-   html, body {
+  html, body {
     margin: 0;
     padding: 0;
   } 
-iframe {
+  iframe {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -17,8 +17,54 @@ iframe {
 </style>
 </head>
 <body>
-  <iframe scrolling="no" title="TCC DIY" src="https://codepen.io/tccdiy/embed/xxmBZoo/1daddbf0a485f13be19415bcb1a58431?default-tab=result&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true" />
-<script>
-</script>
+  <iframe id="iframe" scrolling="no" title="TCC DIY" src="" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  <script>
+    function isMobile() {
+      return "ontouchstart" in window || navigator.maxTouchPoints;
+    }
+
+    function isSafari() {
+      return (
+        /Safari/.test(navigator.userAgent) &&
+        !/CriOS/i.test(navigator.userAgent) &&
+        !/Chrome/i.test(navigator.userAgent)
+      );
+    }
+
+    function isDarkMode() {
+      return (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+
+    console.log("isMobile = " + isMobile());
+    console.log("isSafari = " + isSafari());
+    console.log("isDarkMode = " + isDarkMode());
+  </script>
+  <script>
+    let theme_id = "default";
+
+    let theme_param = new URLSearchParams(window.location.search).get("theme");
+    if (theme_param != null) {
+      if (theme_param == "1") {
+        theme_id = "light";
+      } else if (theme_param == "2") {
+        theme_id = "dark";
+      }
+    } else if (isMobile()) {
+      if (isDarkMode()) {
+        if (isSafari()) {
+          theme_id = "default";
+        } else {
+          theme_id = "default";
+        }
+      } else {
+        theme_id = "light";
+      }
+    }
+
+    document.getElementById("iframe").src = `https://codepen.io/tccdiy/embed/xxmBZoo/1daddbf0a485f13be19415bcb1a58431?default-tab=result&theme-id=${theme_id}`;
+  </script>
 </body>
 </html>
