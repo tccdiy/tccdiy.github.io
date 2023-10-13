@@ -21,17 +21,23 @@
         /* background-color: #111111; */
       }
     }
+    #scrollingDisabler{
+      width: 100%;
+      height: 100%;
+    }
     iframe {
       position: absolute;
-      top: -1px;
+      top: -2px;
       left: -2px;
       width: calc(100% + 4px);
-      height: calc(100% + 4px);
+      height: calc(100% + 10px);
     }
   </style>
 </head>
 <body>
-  <iframe id="iframe" title="TCC DIY" src="" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  <div id="scrollingDisabler">
+    <iframe id="iframe" title="TCC DIY" src="" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </div>
   <script>
     function isMobile() {
       return "ontouchstart" in window || navigator.maxTouchPoints;
