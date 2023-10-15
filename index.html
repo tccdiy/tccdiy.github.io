@@ -85,6 +85,7 @@
 
       let params = new URLSearchParams({ "default-tab": "result", "theme-id": theme_id });
       // Passes existing url query params from github to codepen
+      // Note: the following code doesn't seem to work though. Maybe in the codepen layer, it doesn't pass params to the pen.
       if (window.location.search) {
         // Remove leading ? from the existing url query
         let existingParams = window.location.search.substring(1);
