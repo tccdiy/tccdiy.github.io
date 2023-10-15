@@ -82,8 +82,16 @@
           theme_id = "light";
         }
       }
-  
-      document.getElementById("iframe").src = `https://codepen.io/tccdiy/${mode}/xxmBZoo/1daddbf0a485f13be19415bcb1a58431?default-tab=result&theme-id=${theme_id}`;
+
+      let params = new URLSearchParams({ "default-tab": "result", "theme-id": theme_id });
+      // Passes existing url query params from github to codepen
+      if (window.location.search) {
+        // Remove leading ? from the existing url query
+        let existingParams = window.location.search.substring(1);
+        params = `${params}&${existingParams}`;
+      }
+      
+      document.getElementById("iframe").src = `https://codepen.io/tccdiy/${mode}/xxmBZoo/1daddbf0a485f13be19415bcb1a58431?${params}`;
     }
 
     loadIFrame();
