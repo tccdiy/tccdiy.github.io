@@ -1,11 +1,11 @@
 <script>
-  // Extract path from URL (e.g., "/drive")
+  // Extract path from URL (e.g., "/youtube")
   let path = window.location.pathname;
-
-  alert("path: " + path);
 
   if (path.includes("youtube")) {
     // window.location.href = "https://www.youtube.com/@tccdiy";  // This will lead Back button back to this page.
     window.location.replace("https://www.youtube.com/@tccdiy");
+  } else {
+    alert(path + "is not found");
   }
 </script>
