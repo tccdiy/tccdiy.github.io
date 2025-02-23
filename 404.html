@@ -1,11 +1,38 @@
 <script>
-  // Extract path from URL (e.g., "/youtube")
-  let path = window.location.pathname;
+(function () {
+  // Define a mapping of exact paths to their corresponding URLs
+  const pathMappings = {
+    "/youtube": "https://www.youtube.com/@tccdiy",
+    "/codepen": "https://codepen.io/tccdiy",
+    // "/github": "https://github.com/tccdiy",
+    // "/x": "https://x.com/tcc_diy"
+  };
 
-  if (path.includes("youtube")) {
-    // window.location.href = "https://www.youtube.com/@tccdiy";  // This will lead Back button back to this page.
-    window.location.replace("https://www.youtube.com/@tccdiy");
+  // Get the exact path from the URL
+  let path = window.location.pathname;
+  // Check if the path exists in our mapping
+  if (pathMappings[path]) {
+    window.location.replace(pathMappings[path]);
   } else {
-    alert(path + "is not found");
+    // Display a centered message if the path is not found
+    document.body.innerHTML = `
+      <div id="not-found">
+        <h1>404 - Page Not Found</h1>
+        <p>The path "<strong>${path}</strong>" does not exist.</p>
+        <a href="/">Go to Homepage</a>
+      </div>
+    `;
+
+    // Apply some basic styles for centering the text
+    const style = document.createElement("style");
+    style.innerHTML = `
+      body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; font-family: Arial, sans-serif; }
+      #not-found { max-width: 600px; padding: 20px; }
+      h1 { font-size: 2rem; color: orange; }
+      p { font-size: 1.2rem; }
+      a { text-decoration: none; font-size: 1.2rem; color: blue; }
+    `;
+    document.head.appendChild(style);
   }
+})();
 </script>
