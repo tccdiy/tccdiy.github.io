@@ -1,38 +1,78 @@
-<script>
-(function () {
-  // Define a mapping of exact paths to their corresponding URLs
-  const pathMappings = {
-    "/youtube": "https://www.youtube.com/@tccdiy",
-    "/codepen": "https://codepen.io/tccdiy",
-    // "/github": "https://github.com/tccdiy",
-    // "/x": "https://x.com/tcc_diy"
-  };
+<!DOCTYPE html>
+<html lang="en">
 
-  // Get the exact path from the URL
-  let path = window.location.pathname;
-  // Check if the path exists in our mapping
-  if (pathMappings[path]) {
-    window.location.replace(pathMappings[path]);
-  } else {
-    // Display a centered message if the path is not found
-    document.body.innerHTML = `
-      <div id="not-found">
-        <h1>404 - Page Not Found</h1>
-        <p>The path "<strong>${path}</strong>" does not exist.</p>
-        <a href="https://tccdiy.com">Go to Homepage</a>
-      </div>
-    `;
+<head>
+  <meta charset="UTF-8">
+  <title>TCC DIY Router</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Define a mapping of exact paths to their corresponding URLs
+      const pathMappings = {
+        "/youtube": "https://www.youtube.com/@tccdiy",
+        "/codepen": "https://codepen.io/tccdiy",
+        // "/github": "https://github.com/tccdiy",
+        // "/x": "https://x.com/tcc_diy"
+      };
+      // Get the exact path from the URL
+      let path = window.location.pathname;
+      // Check if the path exists in our mapping
+      if (pathMappings[path]) {
+        window.location.replace(pathMappings[path]);
+      } else {
+        // Display a centered message if the path is not found
+        const container = document.createElement("div");
+        container.className = "container";
+        container.innerHTML = `
+                    <h1>404 - Page Not Found</h1>
+                    <p>Sorry, we couldn't find the page you were looking for.</p>
+                    <p>The path "<strong>${path}</strong>" does not exist.</p>
+                    <p>Return to the <a href="https://tccdiy.com">tccdiy.com</a> homepage.</p>
+                `;
+        document.body.appendChild(container);
+      }
+    });
+  </script>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      background-color: #f6f8fa;
+      color: #24292e;
+    }
 
-    // Apply some basic styles for centering the text
-    const style = document.createElement("style");
-    style.innerHTML = `
-      body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; font-family: Arial, sans-serif; }
-      #not-found { max-width: 600px; padding: 20px; }
-      h1 { font-size: 2rem; color: orange; }
-      p { font-size: 1.2rem; }
-      a { text-decoration: none; font-size: 1.2rem; color: blue; }
-    `;
-    document.head.appendChild(style);
-  }
-})();
-</script>
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- The content will be injected by JavaScript based on the path -->
+</body>
+
+</html>
